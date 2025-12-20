@@ -1,0 +1,9 @@
+[user]
+	name = horki-at
+	email = arthurtopal342@gmail.com
+[core]
+	editor = emacs
+[init]
+	defaultBranch = main
+[alias]
+	st = status

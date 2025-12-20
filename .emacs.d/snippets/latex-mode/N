@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: the set of natural numbers
+# key: N
+# group: math
+# --
+\mathbb{N}

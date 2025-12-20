@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: snippet snippet
+# key: snip
+# group: utility
+# --
+# -*- mode: snippet -*-
+# name: $1
+# key: ${2:`(file-name-nondirectory (file-name-sans-extension (buffer-file-name)))`}
+# group: $3
+# --
+$0

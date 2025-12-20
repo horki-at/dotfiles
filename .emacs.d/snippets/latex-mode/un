@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: general discrete union 
+# key: un
+# group: math
+# --
+\bigcup_{$1}{$2}$0

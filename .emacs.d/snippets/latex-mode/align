@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: align* block
+# key: align
+# group: environment
+# --
+\begin{align*}
+  $0
+\end{align*}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: the set of natural numbers without 0
+# key: N+
+# group: math
+# --
+\mathbb{N}^+

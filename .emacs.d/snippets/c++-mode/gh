@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: insert a global header
+# key: gh
+# group: programming embedded
+# --
+#include <$1.$2h>
+
+$0

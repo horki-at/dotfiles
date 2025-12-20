@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: congruences module some number
+# key: mod
+# group: math
+# --
+$1 \equiv $2 (\mod $3)$0

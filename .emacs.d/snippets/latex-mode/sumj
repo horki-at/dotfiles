@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: discrete summation using variable j
+# key: sumj
+# group: math
+# --
+\sum_{j=$1}^{$2}{$0}

@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: left and right pair of enclosing
+# key: lr
+# group: math 
+# --
+\left$1 $3 \right$2$0

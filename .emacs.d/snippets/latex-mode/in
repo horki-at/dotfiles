@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: general discrete intersection
+# key: in
+# group: math
+# --
+\bigcap_{$1}{$2}$0

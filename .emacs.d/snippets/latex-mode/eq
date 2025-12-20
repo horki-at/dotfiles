@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: equation block with no label
+# key: eq
+# group: environment
+# --
+\begin{equation*}
+  $0
+\end{equation*}

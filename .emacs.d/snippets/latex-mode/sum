@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: general discrete summation 
+# key: sum
+# group: math
+# --
+\sum_{$1}{$0}

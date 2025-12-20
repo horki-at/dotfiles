@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: discrete intersection using variable i
+# key: ini
+# group: math
+# --
+\bigcap_{i=$1}^{$2}{$3}$0

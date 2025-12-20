@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: solution block from common/common.tex
+# key: sol
+# group: environment
+# --
+\begin{solution}
+  $0
+\end{solution}

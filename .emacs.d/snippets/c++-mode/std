@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: put using namespace std
+# key: std
+# group: programming embedded
+# --
+using namespace std;$0

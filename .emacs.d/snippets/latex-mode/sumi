@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: discrete summation using variable i
+# key: sumi
+# group: math
+# --
+\sum_{i=$1}^{$2}{$0}
