@@ -1,1 +1,5 @@
 */.yas-compiled-snippets.el
+.config/emacs/auto-save-list
+.config/emacs/eln-cache
+.config/emacs/elpa
+.config/emacs/projectile-bookmarks.eld
