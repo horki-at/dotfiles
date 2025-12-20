@@ -2,7 +2,25 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("kitty"
+(("cpp"
+ (filename . "~/projects/cPlusPlus2/")
+ (front-context-string . "Annotations.pdf\n")
+ (rear-context-string . "03 Oct 29 19:39 ")
+ (position . 188)
+ (last-modified 26951 6091 703655 245000))
+("bashrc"
+ (filename . "~/.bashrc")
+ (front-context-string . "alias ll='ls -la")
+ (rear-context-string)
+ (position . 1)
+ (last-modified 26951 6072 2025 858000))
+("dots"
+ (filename . "~/dotfiles/")
+ (front-context-string . ".config\n  drwxrw")
+ (rear-context-string . "96 Dec 20 22:04 ")
+ (position . 171)
+ (last-modified 26951 6064 394181 341000))
+("kitty"
  (filename . "~/.config/kitty/kitty.conf")
  (front-context-string . "# vim:fileencodi")
  (rear-context-string)
