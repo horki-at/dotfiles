@@ -15,7 +15,7 @@
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 
-(setq-default mode-line-format nil)     ; TODO: make minimal format (thin)
+;(setq-default mode-line-format nil)     ; TODO: make minimal format (thin)
 
 ;; Editing
 (setq-default fill-column 80)
