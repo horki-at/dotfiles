@@ -13,3 +13,4 @@
 
 (keymap-global-set "C-c c" 'compile)
 (keymap-global-set "C-c r" 'recompile)
+

@@ -57,3 +57,17 @@
 ;; Extra
 (use-package zenity-color-picker
   :bind (("C-c z" . zenity-cp-color-at-point-dwim)))
+
+;; Global GNU Configuration --- Tags System
+(use-package ggtags
+  :ensure t
+  :hook ((c-mode . ggtags-mode)
+         (c++-mode . ggtags-mode))
+  :config
+  (setenv "GTAGSLIBPATH" (expand-file-name "~/.config/emacs/tags/"))
+  (setenv "GTAGSCONF" (expand-file-name "~/.globalrc"))
+  (setq ggtags-split-window-function #'split-window-horizontally)
+  (with-eval-after-load 'evil
+    (evil-define-key 'normal ggtags-mode-map (kbd "gd") 'ggtags-find-tag-dwim)
+    (evil-define-key 'normal ggtags-mode-map (kbd "C-]") 'ggtags-find-tag-dwim)
+    (evil-define-key 'normal ggtags-mode-map (kbd "gb") 'pop-tag-mark)))

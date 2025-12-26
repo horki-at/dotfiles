@@ -1,0 +1,2 @@
+default:\
+	:langmap=c\:.c.h.ih,yacc\:.y,asm\:.s.S,java\:.java,cpp\:.c++.cc.hh.cpp.cxx.hxx.hpp.C.ih.H,php\:.php.php3.phtml:"
