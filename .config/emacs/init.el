@@ -3,6 +3,7 @@
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (load-library "core")
+(load-library "modeline")
 (load-library "prog")
 (load-library "vendor")
 
