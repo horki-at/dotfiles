@@ -29,6 +29,7 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode 0)
+(hs-minor-mode 1)
 
 (global-display-fill-column-indicator-mode)
 (global-hl-line-mode)
