@@ -2,7 +2,13 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("cpp"
+(("emacs"
+ (filename . "~/dotfiles/.config/emacs/")
+ (front-context-string . "auto-save-list\n ")
+ (rear-context-string . "96 Dec 24 17:09 ")
+ (position . 182)
+ (last-modified 26956 4832 352654 241000))
+("cpp"
  (filename . "~/projects/cPlusPlus2/")
  (front-context-string . "Annotations.pdf\n")
  (rear-context-string . "03 Oct 29 19:39 ")
