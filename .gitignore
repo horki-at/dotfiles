@@ -7,6 +7,6 @@
 .config/emacs/tramp
 .config/emacs/url
 
-.config/emacs/sources/ascii-art.el
+.config/emacs/config/local.el
 
 .config/emacs/tags/*
