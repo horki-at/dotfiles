@@ -4,5 +4,7 @@
 .config/emacs/eln-cache
 .config/emacs/elpa
 .config/emacs/projectile-bookmarks.eld
+.config/emacs/tramp
+.config/emacs/url
 
 .config/emacs/tags/*

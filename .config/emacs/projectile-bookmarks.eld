@@ -1,1 +1,1 @@
-("~/projects/tasp/" "~/dotfiles/" "~/probe/solutions/" "~/projects/cPlusPlus2/" "~/projects/hage/" "~/projects/cPlusPlus/" "~/projects/bfcpu/")
+("~/dotfiles/" "~/projects/tasp/" "~/probe/solutions/" "~/projects/cPlusPlus2/" "~/projects/hage/" "~/projects/cPlusPlus/" "~/projects/bfcpu/")

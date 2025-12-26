@@ -8,6 +8,8 @@
 
 (add-to-list 'load-path (expand-file-name "sources" user-emacs-directory))
 (load-library "glossary")
+(load-library "sidebar")
+(load-library "docbar")
 (load-library "sticky-note")
 (load-library "utils")
 
