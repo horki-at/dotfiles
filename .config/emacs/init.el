@@ -8,6 +8,9 @@
 (load-library "vendor")
 
 (add-to-list 'load-path (expand-file-name "sources" user-emacs-directory))
+(load-library "ascii-art")
+(load-library "notify")
+(load-library "tasks")
 (load-library "glossary")
 (load-library "sidebar")
 (load-library "docbar")

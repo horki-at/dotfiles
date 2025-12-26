@@ -22,8 +22,8 @@
      "18a1d83b4e16993189749494d75e6adb0e15452c80c431aca4a867bcc8890ca9"
      "c5532fb4c3025eb02c9452ba64e4671fcd33900db00b5ea10b4bb919f32f70a5" default))
  '(package-selected-packages
-   '(evil ggtags hl-todo move-text projectile swiper use-package xclip yasnippet
-          zenity-color-picker))
+   '(evil ggtags hl-todo move-text posframe projectile swiper use-package xclip
+          yasnippet zenity-color-picker))
  '(safe-local-variable-values
    '((projectile-project-root-files-top-down-recurring "Makefile"))))
 (custom-set-faces
