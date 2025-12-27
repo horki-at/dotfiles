@@ -3,6 +3,7 @@
 .config/emacs/auto-save-list
 .config/emacs/eln-cache
 .config/emacs/elpa
+.config/emacs/transient
 .config/emacs/projectile-bookmarks.eld
 .config/emacs/tramp
 .config/emacs/url
