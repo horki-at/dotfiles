@@ -29,7 +29,12 @@
 (use-package evil
   :config
   (evil-mode)
-  (evil-set-initial-state 'dashboard-mode 'emacs))
+  (evil-set-initial-state 'dashboard-mode 'emacs)
+  (evil-set-initial-state 'magit-status-mode 'emacs))
+(use-package evil-surround
+  :ensure t
+  :config
+  (global-evil-surround-mode 1))
 (use-package zenity-color-picker
   :bind (("C-c z" . zenity-cp-color-at-point-dwim)))
 (use-package ggtags
@@ -48,7 +53,7 @@
   :ensure t
   :config
   (dashboard-setup-startup-hook)
-  (setq dashboard-banner-logo-title "Damn you are sexy :3"
+  (setq dashboard-banner-logo-title "Merry Christmas!"
         dashboard-startup-banner "~/.config/emacs/config/dashboard-banner.txt"
         dashboard-center-content t
         dashboard-vertically-center-content t
@@ -57,3 +62,8 @@
                           (bookmarks . 5))
         dashboard-item-shortcuts '((projects . "p")
                                    (bookmarks . "b"))))
+(use-package magit
+  :ensure t
+  :bind ("C-x g" . magit-status))
+(use-package avy
+  :bind ("M-j" . avy-goto-char-timer))
