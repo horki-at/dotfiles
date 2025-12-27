@@ -49,7 +49,7 @@
   :config
   (dashboard-setup-startup-hook)
   (setq dashboard-banner-logo-title "Damn you are sexy :3"
-        dashboard-startup-banner 'logo
+        dashboard-startup-banner "~/.config/emacs/config/dashboard-banner.txt"
         dashboard-center-content t
         dashboard-vertically-center-content t
         dashboard-projects-backend 'projectile
