@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: insert printf("\n");
+# key: pln
+# group: programming embedded
+# --
+printf("\n");$0

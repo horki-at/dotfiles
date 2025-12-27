@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: insert a local header
+# key: lh
+# group: programming embedded
+# --
+#include "$1.$2h"
+
+$0

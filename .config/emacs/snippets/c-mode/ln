@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: insert a new line.
+# key: ln
+# group: programming embedded
+# --
+"\n"$0

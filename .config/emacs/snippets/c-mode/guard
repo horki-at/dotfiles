@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: C-style include header guards.
+# key: guard
+# group: programming embedded
+# --
+#ifndef INCLUDED_$1_
+#define INCLUDED_$1_
+
+$0
+
+#endif // INCLUDED_$1_

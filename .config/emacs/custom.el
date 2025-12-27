@@ -25,7 +25,19 @@
    '(evil ggtags hl-todo move-text posframe projectile swiper use-package xclip
           yasnippet zenity-color-picker))
  '(safe-local-variable-values
-   '((projectile-project-root-files-top-down-recurring "Makefile"))))
+   '((tasks/alist ("build" . "gcc -std=c99 *.c -o suguru -DDEBUG")
+                  ("release" . "gcc -std=c99 *.c -o suguru")
+                  ("run" . "./suguru") ("test1" . "cat test1 | ./suguru")
+                  ("test2" . "cat test2 | ./suguru")
+                  ("test3" . "cat test3 | ./suguru"))
+     (tasks/alist ("build" . "gcc -std=c99 *.c -o suguru -DDEBUG")
+                  ("run" . "./suguru") ("test1" . "cat test1 | ./suguru")
+                  ("test2" . "cat test2 | ./suguru")
+                  ("test3" . "cat test3 | ./suguru"))
+     (tasks/alist ("build" . "gcc -std=c99 *.c -o suguru -DDEBUG")
+                  ("run" . "./suguru"))
+     (tasks/alist ("build" . "gcc -std=c99 *.c -o suguru") ("run" . "./suguru"))
+     (projectile-project-root-files-top-down-recurring "Makefile"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

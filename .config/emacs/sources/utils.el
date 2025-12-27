@@ -12,6 +12,7 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "C-c t") 'dired-untabify-file)
   (define-key dired-mode-map (kbd "%") 'dired-create-empty-file))
+
 ;; C++ Course Utility Functions
 (defvar rug/cpp-extensions '(".h" ".hh" ".ih" ".inl" ".cc" ".cpp" ".C")
   "List of C++ file extensions to look for.")

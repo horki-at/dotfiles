@@ -10,7 +10,7 @@
       (user-error "No tasks defined. Create it in .dir-locals.el")
     (let* ((choices (mapcar #'car tasks/alist))
            (selected (completing-read "Run task: " choices))
-           (cmd (alist-get selected choices nil nil #'string=)))
+           (cmd (cdr (assoc selected tasks/alist))))
       (cond
        ((stringp cmd) (compile cmd))    ; string => run shell command
        ((functionp cmd) (funcall cmd))  ; elisp func => execute it within emacs

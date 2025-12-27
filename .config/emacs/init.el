@@ -2,17 +2,14 @@
 (load custom-file)
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
-(load-library "local")
 (load-library "core")
 (load-library "modeline")
 (load-library "prog")
 (load-library "vendor")
 
 (add-to-list 'load-path (expand-file-name "sources" user-emacs-directory))
-(load-library "notify")
 (load-library "tasks")
 (load-library "glossary")
 (load-library "sidebar")
-(load-library "docbar")
 (load-library "sticky-note")
 (load-library "utils")

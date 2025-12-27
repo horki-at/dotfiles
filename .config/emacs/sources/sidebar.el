@@ -11,9 +11,9 @@
     (read-string "Enter the name of the buffer: ")   ; obtain NAME
     (read-string "Enter the header of the buffer: ") ; obtain HEADER
     (read-string "Enter the color of the buffer: ")  ; obtain COLOR
-    (if (yes-or-no-p "Use a custom buffer creation function? ")
-        (nil))                              ; TODO: implement this
-    (if (yes-or-no-p "Use a custom slot? ")          ; obtain optional SLOT
+    (if (yes-or-no-p "[no effect] Use a custom buffer creation function? ")
+        (nil))
+    (if (yes-or-no-p "Use a custom slot? ") ; obtain optional SLOT
         (read-number "Enter the slot of the buffer: "))))
   (let ((display-action `(display-buffer-in-side-window
                           (side . right)
