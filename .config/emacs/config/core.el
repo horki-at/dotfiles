@@ -21,5 +21,18 @@
 (column-number-mode 1)
 (show-paren-mode 1)
 (menu-bar-mode 0)
+(ido-mode 1)
+(ido-everywhere 1)
 (global-display-fill-column-indicator-mode)
 (global-hl-line-mode)
+
+(custom-set-faces
+ '(dired-directory ((t (:weight bold))))
+ '(font-lock-builtin-face ((t nil)))
+ '(font-lock-comment-face ((t (:italic t))))
+ '(font-lock-constant-face ((t nil)))
+ '(font-lock-function-name-face ((t nil)))
+ '(font-lock-keyword-face ((t nil)))
+ '(font-lock-string-face ((t nil)))
+ '(font-lock-type-face ((t nil)))
+ '(font-lock-variable-name-face ((t nil))))

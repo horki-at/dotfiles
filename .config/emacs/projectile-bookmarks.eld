@@ -1,1 +1,1 @@
-("~/dotfiles/" "~/probe/solutions/" "~/projects/cPlusPlus2/" "~/projects/tasp/" "~/projects/hage/" "~/projects/cPlusPlus/" "~/projects/bfcpu/")
+("~/dotfiles/" "~/projects/tasp/" "~/probe/solutions/" "~/probe/simplegit-progit/" "~/probe/riscv-gnu-toolchain/" "~/probe/ostep-homework/" "~/probe/lc3tools/" "~/probe/gitbook/" "~/probe/boomer/" "~/probe/ascii-image-converter/" "~/probe/Aseprite-v1.3.15.4-Source/" "~/projects/hage/" "~/projects/cPlusPlus2/" "~/projects/cPlusPlus/" "~/projects/bfcpu/")
