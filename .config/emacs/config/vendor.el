@@ -1,6 +1,7 @@
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")))
+                         ("gnu" . "https://elpa.gnu.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -48,7 +49,8 @@
   (with-eval-after-load 'evil
     (evil-define-key 'normal ggtags-mode-map (kbd "gd") 'ggtags-find-tag-dwim)
     (evil-define-key 'normal ggtags-mode-map (kbd "C-]") 'ggtags-find-tag-dwim)
-    (evil-define-key 'normal ggtags-mode-map (kbd "gb") 'pop-tag-mark)))
+    (evil-define-key 'normal ggtags-mode-map (kbd "gb") 'pop-tag-mark)
+    (evil-define-key 'normal org-mode-map (kbd "TAB") 'org-cycle)))
 (use-package dashboard
   :ensure t
   :config
@@ -66,4 +68,21 @@
   :ensure t
   :bind ("C-x g" . magit-status))
 (use-package avy
+  :ensure t
   :bind ("M-j" . avy-goto-char-timer))
+(use-package lorem-ipsum
+  :ensure t
+  :bind ("C-c l" . lorem-ipsum-insert-paragraphs))
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1))
+(use-package swiper
+  :bind (("C-s" . swiper)))
+(use-package org
+  :ensure t
+  :config
+  (setq org-confirm-babel-evaluate nil)
+  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
+                                                           (python . t)
+                                                           (C . t))))
