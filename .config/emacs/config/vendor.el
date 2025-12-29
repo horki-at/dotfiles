@@ -1,7 +1,6 @@
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                         ("gnu" . "https://elpa.gnu.org/packages/")
-                         ("org" . "https://orgmode.org/elpa/")))
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
@@ -23,7 +22,7 @@
 (use-package projectile
   :config
   (projectile-mode)
-  (setq projectile-project-search-path '("~/projects/" "~/probe/"))
+  (setq projectile-project-search-path '("~/projects/"))
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map))
 (use-package xclip
   :config (xclip-mode))
@@ -79,10 +78,3 @@
   (ivy-mode 1))
 (use-package swiper
   :bind (("C-s" . swiper)))
-(use-package org
-  :ensure t
-  :config
-  (setq org-confirm-babel-evaluate nil)
-  (org-babel-do-load-languages 'org-babel-load-languages '((emacs-lisp . t)
-                                                           (python . t)
-                                                           (C . t))))

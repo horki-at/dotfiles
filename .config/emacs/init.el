@@ -3,13 +3,10 @@
 
 (add-to-list 'load-path (expand-file-name "config" user-emacs-directory))
 (load-library "core")
-(load-library "modeline")
 (load-library "prog")
 (load-library "vendor")
 
 (add-to-list 'load-path (expand-file-name "sources" user-emacs-directory))
 (load-library "tasks")
-(load-library "glossary")
-(load-library "sidebar")
 (load-library "sticky-note")
 (load-library "utils")
