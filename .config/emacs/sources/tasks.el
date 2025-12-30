@@ -10,9 +10,13 @@
       (user-error "No tasks defined. Create it in .dir-locals.el")
     (let* ((choices (mapcar #'car tasks/alist))
            (selected (completing-read "Run task: " choices))
-           (cmd (cdr (assoc selected tasks/alist))))
-      (cond
-       ((stringp cmd) (compile cmd))    ; string => run shell command
-       ((functionp cmd) (funcall cmd))  ; elisp func => execute it within emacs
-       (t (user-error "Invalid task format: %s" cmd))))))
+           (cmd (cdr (assoc selected tasks/alist)))
+           (root (projectile-project-root)))
+      (unless root
+        (user-error "Not in a project, cannot run the command"))
+      (projectile-with-default-dir root
+        (cond
+         ((stringp cmd) (compile cmd))    ; string => run shell command
+         ((functionp cmd) (funcall cmd))  ; elisp func => execute it in emacs
+         (t (user-error "Invalid task format: %s" cmd)))))))
 (global-set-key (kbd "C-c t") #'tasks/run-task)
