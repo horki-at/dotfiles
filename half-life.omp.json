@@ -5,13 +5,13 @@
       "alignment": "left",
       "segments": [
         {
-          "foreground": "#000000",
+          "foreground": "#EBDBB2",
           "style": "plain",
           "template": "{{ .UserName }} ",
           "type": "session"
         },
         {
-          "foreground": "#000000",
+          "foreground": "#EBDBB2",
           "style": "plain",
           "template": "in ",
           "type": "text"
@@ -46,7 +46,7 @@
           "type": "git"
         },
         {
-          "foreground": "#000000",
+          "foreground": "#EBDBB2",
           "style": "plain",
           "template": "λ ",
           "type": "text"

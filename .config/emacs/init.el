@@ -9,4 +9,5 @@
 (add-to-list 'load-path (expand-file-name "sources" user-emacs-directory))
 (load-library "tasks")
 (load-library "sticky-note")
+(load-library "sidebar")
 (load-library "utils")
