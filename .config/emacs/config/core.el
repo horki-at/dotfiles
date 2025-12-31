@@ -15,8 +15,6 @@
 (setq-default fill-column 80)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
-(setq show-paren-delay 0)
-(setq show-paren-style 'expression)
 (global-completion-preview-mode)
 (column-number-mode 1)
 (menu-bar-mode 0)
