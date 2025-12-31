@@ -72,12 +72,6 @@
 (use-package lorem-ipsum
   :ensure t
   :bind ("C-c l" . lorem-ipsum-insert-paragraphs))
-(use-package ivy
-  :ensure t
-  :config
-  (ivy-mode 1))
-(use-package swiper
-  :bind (("C-s" . swiper)))
 (use-package markdown-mode
   :ensure t)
 (use-package gruvbox-theme
