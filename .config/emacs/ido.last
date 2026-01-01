@@ -1,0 +1,50 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/horki/projects/rayit/rayit/" . "math/")
+ ("/home/horki/projects/design-patterns/" . "visitor/")
+ ("/home/horki/" . "probe/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/home/horki/Applications/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "Hypersomnia_a8cc1d1f5c1fb61d759f0d442b8635cd.AppImage"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/horki/journal/" (26966 33491 283859 877000) "./" "../")
+
+ ("/home/horki/" (26966 29209 599168 708000) ".local/" "downloads/" ".cache/" ".face" "vm/" ".vscode/" ".mozilla/" ".gnupg/" ".wget-hsts" ".globalrc" ".vim/" ".xsession-errors" ".nv/" ".ICEauthority" "repos/" ".Xauthority" ".ssh/" "half-life.omp.json" ".choosenim/" ".bashrc" ".yarn/" ".viminfo" ".nuget/" ".bash_logout" ".dotnet/" ".xsession-errors.old" ".npm/" ".gitconfig" ".java/" ".cargo/" ".rustup/" ".yarnrc" ".bash_history" ".dmrc" "go/" "Applications/" ".profile" "projects/" ".texlive2025/" ".icons/" ".lesshst" "docs/" ".sudo_as_admin_successful" "media/" ".electron-gyp/" ".config/" "./" ".face.icon" "scripts/" ".nimble/" "../" ".pki/" "dotfiles/")
+
+ ("/home/horki/projects/rayit/rayit/math/" (26965 40364 918579 223000) "tuple.hh" "vector.hh" "point.hh" "tuple.inl" "normal.hh" "vector.tpp" "vector.inl" "tuple.tpp" "./" "../")
+
+ ("/home/horki/projects/rayit/rayit/" (26965 24525 742240 114000) "./" "main.cc" "../" "Makefile" "core/")
+
+ ("/home/horki/projects/rayit/" (26965 15956 930065 379000) ".git/" ".dir-locals.el" ".gitignore" "rayit/" "README.md" "TODO.md" "GRTAGS" "GTAGS" "./" "../" "GPATH" "LICENSE")
+
+ ("/home/horki/projects/rayit/rayit/build/debug/" (26964 19031 383322 880000) "logger.o" "rayit" "./" "main.o" "main.o.dep" "../" "logger.o.dep")
+
+ ("/home/horki/projects/langs/" (26963 46663 877864 66000) ".git/" "./" "../")
+
+ ("/home/horki/projects/design-patterns/visitor/" (26963 46247 430848 315000) "./" "../")
+
+ ("/home/horki/projects/design-patterns/" (26963 46231 537471 65000) ".git/" "./" "../")
+
+ ("/home/horki/probe/c/" (26962 42134 718347 56000) "main.c" "./" "../")
+
+ ("/home/horki/probe/" (26962 42121 178232 165000) "./" "../")
+
+ ("/home/horki/dotfiles/" (26961 56358 911839 862000) ".git/" ".globalrc" ".gitignore" "half-life.omp.json" "README.md" ".gitconfig" "media/" ".config/" "./" "../" "LICENSE")
+
+ ("/home/horki/Applications/" (26955 63520 981244 738000) "Todoist_d997ae7817ba6978f7ddd7dca2866b01.AppImage" "LC3Tools-2.0.2_b7ad27168fe1e9255bbacde367ef2497.AppImage" "Hypersomnia_a8cc1d1f5c1fb61d759f0d442b8635cd.AppImage" "Pioneer-x86_64_544d68c92bc89ff6bb8e97a5b8c2fe40.AppImage" ".trash/" "./" "../")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

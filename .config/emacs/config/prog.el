@@ -1,9 +1,7 @@
 (defun my-c-style ()
   (c-set-style "bsd")
-  (c-set-offset 'member-init-intro 0)
   (setq c-basic-offset 2)
-  (hs-minor-mode 1)
-  (setq indent-tabs-mode nil))
+  (hs-minor-mode 1))
 
 (add-hook 'c-mode-hook 'my-c-style)
 (add-hook 'c++-mode-hook 'my-c-style)
