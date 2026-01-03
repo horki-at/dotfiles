@@ -24,15 +24,7 @@
 (global-hl-line-mode)
 
 (setq c-basic-offset 2)
-(setq c-default-style "bsd")
-(add-to-list 'auto-mode-alist '("\\.h\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.c\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.cc\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.hh\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.ih\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.inl\\'" . c-or-c++-ts-mode))
-(add-to-list 'auto-mode-alist '("\\.tpp\\'" . c-or-c++-ts-mode))
+(setq-default c-default-style "bsd")
 
 (setq treesit-language-source-alist
       '((cpp "https://github.com/tree-sitter/tree-sitter-cpp" "v0.22.3")
@@ -46,7 +38,7 @@
  '(font-lock-comment-face ((t (:italic t))))
  '(font-lock-constant-face ((t nil)))
  '(font-lock-function-name-face ((t nil)))
- '(font-lock-keyword-face ((t (:weight bold))))
- '(font-lock-string-face ((t (:foreground "#a36e08"))))
+ '(font-lock-keyword-face ((t nil)))
+ '(font-lock-string-face ((t nil)))
  '(font-lock-type-face ((nil)))
  '(font-lock-variable-name-face ((t nil))))
