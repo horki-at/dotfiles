@@ -1,4 +1,4 @@
-;; Extra Utility Functions
+;; Dired and Miscellaneous Utility Functions
 (defun dired-untabify-file ()
   "In Dired, open the selected file, untabify the while buffer, and save."
   (interactive)
@@ -38,47 +38,97 @@
       (message "No matching C++ files found in %s" dir))))
 
 ;; General C++ Utilities
-(defun cpp-extract-class-name ()
-  "Extract the first class name to the top in the current buffer."
-  (save-excursion
-    (when (re-search-backward "\\b\\(?:struct\\|class\\)\\b\\s-+\\([A-Za-z0-9_]+\\)" nil t)
-      (match-string 1))))
+(defun cpp-declaration-from-declarator-node (func-declarator-node)
+  "Get function declaration node from declarator node up the c++ syntax tree"
+  (let ((func-declaration-node func-declarator-node))
+    (while (and
+            (not (string-equal "field_declaration" (treesit-node-type func-declaration-node)))
+            (not (string-equal "declaration" (treesit-node-type func-declaration-node)))
+            (not (string-equal "function_definition" (treesit-node-type func-declaration-node))))
+      (setq func-declaration-node (treesit-node-parent func-declaration-node)))
+    func-declaration-node))
 
-;; TODO: Problems with this functions are:
-;; 1) no nesting in default arguments
-;; 2) doesn't handle noexcept(...) syntax at all
-;; 3) doesn't handle attributes (e.g., [[maybe_unused]])
-(defun cpp-copy-declaration (start end)
-  "Copy C++ declaration in region and transform it into a definition stub."
-  (interactive "r")
-  (let* ((decl (buffer-substring-no-properties start end))
-         (prefix (if (string-match "\\b\\(static\\)\\b" decl) "//static\n"))
-         (class-name (cpp-extract-class-name))
-         (def decl))
+(defun cpp-declaration-extract-return-type (func-declaration-node func-declarator-node)
+  "Extract and return the return type of the function. This works because
+declaration = type + declarator"
+  (let* ((start (treesit-node-start func-declaration-node))
+         (end (treesit-node-start func-declarator-node))
+         (raw-text (buffer-substring-no-properties start end)))
+    ;; Remove storage specifiers that shouldn't be in the type
+    (setq raw-text (replace-regexp-in-string
+                    "\\b\\(virtual\\|static\\|explicit\\|friend\\)\\b"
+                    ""
+                    raw-text))
+    raw-text))
 
-    ;; strip forward keywords that can exist in C++ declarations
-    (setq def (replace-regexp-in-string "\\b\\(virtual\\|inline\\|static\\|friend\\|explicit\\)\\b\\s-+" "" def))
+(defun cpp-identifier-convert-at-point ()
+  "Converts the function declarator at point to the definition and yanks it into
+the kill-ring. If point is not a function declarator, the caller is
+notified via the echo buffer."
+  (interactive)
+  (let* ((identifier-node (treesit-node-at (point) 'cpp))
+         (func-declarator-node (treesit-parent-until
+                                identifier-node
+                                (lambda (node) (string-equal "function_declarator" (treesit-node-type node)))))
+         (func-declarator (treesit-node-text func-declarator-node))
+         (func-identifier (treesit-node-text (treesit-node-child func-declarator-node 0))))
+    (if (string-equal "function_declarator" (treesit-node-type func-declarator-node))
+        ;; Search up the syntax tree, and collect classes/namespaces/templates
+        (let* ((func-declaration-node (cpp-declaration-from-declarator-node func-declarator-node))
+               (return-type (cpp-declaration-extract-return-type func-declaration-node func-declarator-node))
+               (context-stack '())  ; includes: class/struct, namespace
+               (template-stack '()) ; includes: template, requires
+               (current-node func-declaration-node))
+          (while current-node
+            (cond
+             ;; CASE: template declaration, push "template template_parameter_list"
+             ((string-equal "template_declaration" (treesit-node-type current-node))
+              (let* ((template-parameter-list-node (treesit-node-child-by-field-name current-node "parameters"))
+                     (template-parameter-list (treesit-node-text template-parameter-list-node))
+                     ;; Maybe this template has requires statement
+                     (constraint-node (treesit-search-subtree
+                                       current-node ; search until "requires_clause" type is found
+                                       (lambda (node) (string-equal "requires_clause" (treesit-node-type node)))
+                                       t   ; search not-named nodes (requires_clause is not-named)
+                                       nil ; don't search backward
+                                       1   ; search at most the same level as template
+                                       ))
+                     (constraint (if constraint-node
+                                     (concat (treesit-node-text constraint-node) "\n")
+                                   "")))
+                (push (concat "template " template-parameter-list "\n" constraint) template-stack)))
 
-    ;; strip backward keywords that can exist in C++ declarations
-    (setq def (replace-regexp-in-string "\\s-+\\b\\(override\\|noexcept\\)\\b" "" def))
+             ;; CASE: class specifier, push "class_identifier::"
+             ((string-equal "class_specifier" (treesit-node-type current-node))
+              (let* ((class-identifier-node (treesit-node-child-by-field-name current-node "name"))
+                     (class-identifier (treesit-node-text class-identifier-node)))
+                (push (concat class-identifier "::") context-stack)))
 
-    ;; remove default arguments (e.g., = 0, = default, = delete, etc.)
-    (setq def (replace-regexp-in-string "\\s-+=[^,);]+" "" def))
+             ;; CASE: struct specifier, push "struct_identifier::"
+             ((string-equal "struct_specifier" (treesit-node-type current-node))
+              (let* ((struct-identifier-node (treesit-node-child-by-field-name current-node "name"))
+                     (struct-identifier (treesit-node-text struct-identifier-node)))
+                (push (concat struct-identifier "::") context-stack)))
 
-    ;; remove trailing semicolon and comment starting with /
-    (setq def (replace-regexp-in-string "\\s-*;\\s-*\\(?:/.*\\)?" "" def))
+             ;; CASE: namespace definition, push "namespace_identifier::"
+             ((string-equal "namespace_definition" (treesit-node-type current-node))
+              (let* ((namespace-identifier-node (treesit-node-child-by-field-name current-node "name"))
+                     (namespace-identifier (treesit-node-text namespace-identifier-node)))
+                (push (concat namespace-identifier "::") context-stack))))
 
-    ;; prepend ClassName:: to the function name if class-name exists
-    (when class-name
-      (setq def (replace-regexp-in-string
-                 "\\([A-Za-z0-9_~]+\\s-*(\\|\\boperator\\b\\)"
-                 (concat class-name "::\\1")
-                 def)))
+            ;; Loop step
+            (setq current-node (treesit-node-parent current-node)))
+          ;; Attach context-stack and template-stack to the function definition
+          (let ((func-definition
+                 (concat
+                  (mapconcat #'identity template-stack "")
+                  return-type
+                  (mapconcat #'identity context-stack "")
+                  func-declarator
+                  "\n{\n\t\n}")))
+            (kill-new func-definition))
+          (message "%s's function definition is yanked." func-identifier))
+      (message "[%s] is NOT a function declarator" func-declarator))))
 
-    ;; Format as a stub and put it in the kill-ring
-    (kill-new (concat prefix (string-trim def) "\n{\n\t\n}"))
-    (message "Definition successfully stub copied.")))
-
-(global-set-key (kbd "C-c y d") #'cpp-copy-declaration)
-(with-eval-after-load 'evil
-  (evil-define-key 'visual c++-mode-map (kbd "g y") 'cpp-copy-declaration))
+(with-eval-after-load 'c++-ts-mode
+  (define-key c++-ts-mode-map (kbd "C-c d") 'cpp-identifier-convert-at-point))

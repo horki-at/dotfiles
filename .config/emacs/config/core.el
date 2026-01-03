@@ -28,6 +28,6 @@
  '(font-lock-constant-face ((t nil)))
  '(font-lock-function-name-face ((t nil)))
  '(font-lock-keyword-face ((t (:weight bold))))
- '(font-lock-string-face ((t nil)))
- '(font-lock-type-face ((t nil)))
+ '(font-lock-string-face ((t (:foreground "#a36e08"))))
+ '(font-lock-type-face ((nil)))
  '(font-lock-variable-name-face ((t nil))))
